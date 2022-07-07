@@ -1,11 +1,8 @@
 <?php
 
 namespace App\Notifications\Channels;
-
-use Ghasedak\Exceptions\ApiException;
-use Ghasedak\Exceptions\HttpException;
 use Illuminate\Notifications\Notification;
-use function PHPUnit\Framework\throwException;
+
 
 class GhasedakChannel
 {
@@ -16,21 +13,11 @@ class GhasedakChannel
         }
         $data = $notification->toGhasedakSms($notifiable);
         $message = $data['text'];
-        $receptor = $data['phoneNumber'];
-        $api_key = config('services.ghasedak.api_key');
-        try {
-            $lineNumber = "30005088";
-            $api = new \Ghasedak\GhasedakApi($api_key);
-            $api->SendSimple($receptor, $message, $lineNumber);
-        } catch (ApiException $e) {
-            throw $e;
-        } catch (HttpException $e) {
-            throw $e;
-        }
+        $lineNumber = "30005088";
+        $receptor = "09357664802";
+        $api = new \Ghasedak\GhasedakApi('81615068f67a4f04899bd33d366c61dde8885d5c539ad220143c7faaca3d5e92');
+        $api->SendSimple($receptor, $message, $lineNumber);
+
 
     }
 }
-
-
-
-

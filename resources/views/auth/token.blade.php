@@ -6,7 +6,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        <h3>Two Factor Authenticate</h3>
+                        <h3>Check Token</h3>
                     </div>
 
                     <div class="card-body">
